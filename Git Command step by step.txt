@@ -1,0 +1,200 @@
+Centralized Workflow
+
+git init
+
+git remote add origin "path of remote repo"
+
+git remote add origin "https://github.com/trainerpoornima/MyWorks.git"
+
+git config --global user.name 
+
+git config --global user.email 
+
+
+git pull origin master
+
+git status
+
+git add FirstFile.txt
+
+git commit -m "Initial Commit"
+
+git add -A
+
+ adding multiple files
+git commit -a -m "Multiple file add"
+no m flag editor will open
+
+git log
+
+
+Branching
+git branch branch1
+
+git checkout branch1
+
+add a new file
+
+git add FourthFile.txt
+
+git commit -m "New File in branch"
+
+ls
+all files from master too
+
+git checkout master
+ls
+only master files
+
+
+Merging
+be in the dest branch
+
+git merge branch1
+
+change file in branch
+FourthFile.txt
+
+git checkout branch1
+git commit -a -m "Modifying Branch"
+No need to add as it's being tracked thro branch
+
+git checkout master
+ls
+cat FourthFile.txt
+
+git checkout branch1
+cat FourthFile.txt
+
+Parallel Development  = Rebasing
+Cleaner project
+linear workflow
+less branches
+
+git checkout branch1
+git add -A
+git commit -a -m "Add new file set 2 for Rebasing"
+ls
+
+git checkout master
+ls
+
+stay in master branch
+git  rebase branch1
+
+PUSH
+Pushing into Remote Repo
+
+ssh-keygen
+y for overwrite  & accept defaults 
+saved in  /c/Users/Poornima/.ssh/id_rsa.pub
+
+cat /c/Users/Poornima/.ssh/id_rsa.pub
+
+switch to portal remote repo
+Account Settings => SSH GPA keys
+paste the key
+add key
+
+
+ssh -T git@github.com
+confirmation message
+
+git checkout branch1
+
+git push origin branch1
+
+git checkout master
+git push origin master
+
+
+
+Revert Back to previous version
+
+create a file "Revert.txt"
+git add Revert.txt
+git commit -m "Revert file adding"
+
+git commit -a -m "Revert file second adding"
+
+cat Revert.txt
+git log
+copy first 8 commit digits of commit log
+git checkout  55a401e7 Revert.txt
+
+cat Revert.txt
+
+
+git pull = git fetch + git merge
+
+
+
+====================
+
+CONFLICTS & MANAGEMENT
+
+Create 2 diff git directory
+
+git init
+
+git remote add origin "https://github.com/trainerpoornima/MyWorks.git"
+
+git pull origin master
+
+make changes in the files separately
+add commit & push for DEV1
+check remote repo
+update success
+
+add commit & push for DEV1
+error at push 
+
+SOLVE THIS
+
+git status
+git pull --rebase origin master
+
+git mergetool
+modify what to retain
+save & exit each file
+
+git rebase --continue
+
+git push origin master
+now push successful
+
+===============
+
+Feature Branch Workflow
+
+git branch feature1
+
+git checkout feature1
+
+add a new file f1.txt
+git add f1.txt
+git commit -m "f1"
+git push origin feature1
+
+check in remote repo
+all older files and new file f1.txt 
+
+create new pull request and send it to anyone in project for review and final merge
+
+similarly you may receive pull req too
+
+go to branches => pull and merge
+
+
+
+===================
+GIT flow
+
+2 branches
+master    develop
+
+show Feature work flow operation structure png
+
+
+
+
